@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS process.env.DB;
-CREATE DATABASE process.env.DB;
-USE process.env.DB;
+DROP DATABASE IF EXISTS hamburgers_db;
+CREATE DATABASE hamburgers_db;
+USE hamburgers_db;
 
 CREATE TABLE hamburgers (
 	id int NOT NULL AUTO_INCREMENT,
