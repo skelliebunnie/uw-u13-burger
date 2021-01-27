@@ -1,0 +1,7 @@
+<ul class="burgers">
+{{#each hamburgers}}
+{{#unless devoured}}
+<li>{{id}}. {{burger_name}} <button class="btn btn-info btn-lg change-status" data-devoured="true" data-id="{{id}}">Devour it!</button> </li>
+{{/unless}}
+{{/each}}
+</ul>

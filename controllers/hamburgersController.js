@@ -11,7 +11,7 @@ router.get("/", function(req, res) {
     var hbsObject = {
       hamburgers: data
     };
-    console.log(hbsObject);
+    // console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
@@ -35,6 +35,18 @@ router.put("/api/hamburgers/:id", function(req, res) {
   hamburgers.update({
     devoured: req.body.devoured
   }, condition, function(result) {
+    if (result.changedRows == 0) {
+      // If no rows were changed, then the ID must not exist, so 404
+      return res.status(404).end();
+    } else {
+      res.status(200).end();
+    }
+  });
+});
+
+router.delete("/api/hamburgers/:id", function(req, res) {
+
+  hamburgers.destroy(req.params.id, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404
       return res.status(404).end();

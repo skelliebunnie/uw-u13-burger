@@ -1,0 +1,7 @@
+<ul class="devoured">
+{{#each hamburgers}}
+{{#if devoured}}
+<li>{{id}}. {{burger_name}} <button class="btn btn-lg btn-warn destroy" data-id="{{id}}">Delete</button></li>
+{{/if}}
+{{/each}}
+</ul>

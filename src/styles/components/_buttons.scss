@@ -4,6 +4,7 @@
 	outline: 0;
 	margin: 0.5rem;
 	background-color: getColor('neutral-200');
+	cursor: pointer;
 
 	@each $name, $color in $messageColors {
 		&.btn-#{$name} {

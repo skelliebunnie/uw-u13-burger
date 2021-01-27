@@ -14,67 +14,63 @@ body {
   width: 99%;
   height: 900px;
   background-color: getColor('peach-100');
+  height: 100vh;
 }
 
-#top-bar {
-  margin-top: 28px;
+#page-container {
+	display: row;
+	flex-flow: column nowrap;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	width: 100vw;
 }
 
-.spacing-reset {
-  padding: 0;
-  margin: 0;
-  border: 0;
+.row {
+	align-self: center;
+	flex: 1 0 auto;
+	margin: 0;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	align-items: stretch;
+
+	&.is-centered {
+		justify-content: center;
+	}
 }
 
-.list-reset {
-  padding: 0;
-  margin: 0;
-  list-style-type: none;
-  border: 0;
-}
-
-@media (min-width: 1200px) {
-  .container {
-    width: 990px;
-  }
-}
-
-@media (min-width: 992px) {
-  .container {
-    width: 990px;
-  }
-}
-
-.enter_section {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-#enter_text {
-  width: 400px;
-  height: 80px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  margin: auto;
-  font-size: 38px;
-}
-
-.task {
-  border-color: getColor('neutral-300');
-  border-style: solid;
-  border-width: 3px;
-}
-
-.button-size {
-  padding-bottom: 20px;
-}
-
-#text-enter-button {
-  margin-top: 10px;
-  margin-bottom: 18px;
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		flex: 1 0 ($i / 12 * 100%);
+		max-width: ($i / 12 * 100%);
+	}
 }
 
 h1 {
 	color: getColor('peach-300');
+}
+
+ul {
+	display: block;
+	list-style-type: none;
+	margin: 0 1rem;
+
+	& li {
+		margin: 1rem 0;
+		padding: 0.5rem 1rem;
+		display: flex;
+		flex-flow: row nowrap;
+		justify-content: space-between;
+		align-items: center;
+		line-height: 2rem;
+		background-color: getColor('lemon-100');
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.row {
+		position: relative;
+		top: 15%;
+	}
 }

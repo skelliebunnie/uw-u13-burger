@@ -1,11 +1,13 @@
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function() {
-  $(".change-sleep").on("click", function(event) {
+	$(this).find("#newBurger").focus();
+	
+  $(".change-status").on("click", function(event) {
     var id = $(this).data("id");
     var status = $(this).data("devoured");
 
     var hamburgerStatus = {
-      sleepy: status
+      devoured: status
     };
 
     // Send the PUT request.
@@ -14,11 +16,29 @@ $(function() {
       data: hamburgerStatus
     }).then(
       function() {
-        console.log("changed sleep to", status);
+        console.log("changed status to", status);
         // Reload the page to get the updated list
         location.reload();
       }
     );
+  });
+
+  $(".destroy").on("click", function(event) {
+    var id = $(this).data("id");
+
+    // Send the PUT request.
+    $.ajax("/api/hamburgers/" + id, {
+      type: "DELETE",
+      dataType: "text"
+    }).then(
+      function() {
+        console.log("deleted burger", id);
+        // Reload the page to get the updated list
+        document.location.href = "/";
+      }
+    ).fail(err => {
+    	document.location.href = "/";
+    });
   });
 
   $(".create-form").on("submit", function(event) {
