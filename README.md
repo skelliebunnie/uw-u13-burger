@@ -1,0 +1,49 @@
+# Eat-Da-Burger!
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Heroku Deployment
+[Live App](https://arcane-dusk-14189.herokuapp.com/)
+
+## Description
+Users can add a burger they'd like to eat to the list. The burger is added, by default, to the "un-devoured" list and listed with a button to "devour it". Clicking that button moves the burger to the right list, which is the list of "devoured" burgers. From that list, the burger can be deleted.
+
+## Table of Contents
+* [Installation](#Installation)
+* [Usage](#Usage)
+* [Contributing](#Contributing)
+* [Tests](#Tests)
+* [Questions](#Questions)
+* [License](#License)
+
+screenshot.png
+
+![Screenshot](screenshot.png)
+## Installing
+- run ```git clone``` to copy the project locally
+- run ```source schema.sql``` and ```source seeds.sql``` in your console/terminal from the mysql prompt
+- run ```gulp``` or ```nodemon server.js``` or ```node server.js```
+- if you ran ```gulp```, the project should automatically open in your default browser. Otherwise, visit ```localhost:8080``` in your browser
+
+## Usage
+Enter a burger in the text box and hit ENTER or click the Submit button. To update the "devoured" status of any burger in the left menu, click the "Devour It!" button. To delete a burger (from the right menu), click the "Delete" button.
+
+### Contributing
+none
+
+### Tests
+none
+
+### Questions
+- Find me on Github: [skelliebunnie](https://github.com/skelliebunnie)
+- Email me at: skelliebunnie@gmail.com
+
+### License
+Copyright (C) 2021 Angel
+
+https://opensource.org/licenses/MIT
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
