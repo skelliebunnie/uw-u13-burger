@@ -31,7 +31,7 @@ body {
 	flex: 1 0 auto;
 	margin: 0;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
 	justify-content: space-between;
 	align-items: stretch;
 
@@ -40,10 +40,16 @@ body {
 	}
 }
 
+.col {
+	flex: 1 0 auto;
+	min-width: 100%;
+	width: 100%;
+}
+
 @for $i from 1 through 12 {
 	.col-#{$i} {
-		flex: 1 0 ($i / 12 * 100%);
-		max-width: ($i / 12 * 100%);
+		// flex: 1 0 ($i / 12 * 100%);
+		min-width: 100%;
 	}
 }
 
@@ -60,7 +66,7 @@ ul {
 		margin: 1rem 0;
 		padding: 0.5rem 1rem;
 		display: flex;
-		flex-flow: row nowrap;
+		flex-flow: column wrap;
 		justify-content: space-between;
 		align-items: center;
 		line-height: 2rem;
@@ -68,9 +74,21 @@ ul {
 	}
 }
 
-@media screen and (min-width: 768px) {
+@media all and (min-width: 981px) {
 	.row {
 		position: relative;
 		top: 15%;
+		flex-flow: row nowrap;
+	}
+
+	ul > li {
+		flex-flow: row wrap;
+	}
+
+	@for $i from 1 through 12 {
+		.col-#{$i} {
+			min-width: auto;
+			max-width: ($i / 12 * 100%);
+		}
 	}
 }
