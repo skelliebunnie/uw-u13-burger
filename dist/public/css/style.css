@@ -437,23 +437,213 @@ body {
 	max-width: 100%;
 	width: 100%; }
 
-ul {
-	list-style-type: none; }
+body {
+	width: 99%;
+	height: 900px;
+	background-color: #ffd3bd; }
 
-li {
-	padding: 0.2rem;
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: horizontal;
-	-webkit-box-direction: normal;
-	    -ms-flex-flow: row nowrap;
-	        flex-flow: row nowrap;
+#top-bar {
+	margin-top: 28px; }
+
+.spacing-reset {
+	padding: 0;
+	margin: 0;
+	border: 0; }
+
+.list-reset {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	border: 0; }
+
+@media (min-width: 1200px) {
+	.container {
+		width: 990px; } }
+
+@media (min-width: 992px) {
+	.container {
+		width: 990px; } }
+
+.enter_section {
+	margin-top: 30px;
+	margin-bottom: 30px;
+	text-align: center; }
+
+#enter_text {
+	width: 400px;
+	height: 80px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin: auto;
+	font-size: 38px; }
+
+.task {
+	border-color: #636982;
+	border-style: solid;
+	border-width: 3px; }
+
+.button-size {
+	padding-bottom: 20px; }
+
+#text-enter-button {
+	margin-top: 10px;
+	margin-bottom: 18px; }
+
+h1 {
+	color: #e64f00; }
+
+.text-left {
+	text-align: left; }
+
+.img-left {
+	display: block;
+	margin-left: 0; }
+
+.text-center {
+	text-align: center; }
+
+.img-center {
+	display: block;
+	margin: 0 auto; }
+
+.text-right {
+	text-align: right; }
+
+.img-right {
+	display: block;
+	margin-right: 0; }
+
+.text-xs {
+	font-size: 0.5rem; }
+
+.text-sm {
+	font-size: 0.8rem; }
+
+.text-md {
+	font-size: 1rem; }
+
+.text-lg {
+	font-size: 1.5rem; }
+
+.text-xl {
+	font-size: 2.2rem; }
+
+.justify-start {
+	-webkit-box-pack: start;
+	    -ms-flex-pack: start;
+	        justify-content: start; }
+
+.justify-center {
+	-webkit-box-pack: center;
+	    -ms-flex-pack: center;
+	        justify-content: center; }
+
+.justify-end {
+	-webkit-box-pack: end;
+	    -ms-flex-pack: end;
+	        justify-content: end; }
+
+.justify-space-between {
 	-webkit-box-pack: justify;
 	    -ms-flex-pack: justify;
 	        justify-content: space-between; }
 
-li > button {
-	-webkit-box-flex: 1;
-	    -ms-flex: 1 0 10%;
-	        flex: 1 0 10%; }
+.justify-space-around {
+	-ms-flex-pack: distribute;
+	    justify-content: space-around; }
+
+.justify-space-evenly {
+	-webkit-box-pack: space-evenly;
+	    -ms-flex-pack: space-evenly;
+	        justify-content: space-evenly; }
+
+.align-stretch {
+	-webkit-box-align: stretch;
+	    -ms-flex-align: stretch;
+	        align-items: stretch; }
+
+.align-center {
+	-webkit-box-align: center;
+	    -ms-flex-align: center;
+	        align-items: center; }
+
+.align-start {
+	-webkit-box-align: start;
+	    -ms-flex-align: start;
+	        align-items: start; }
+
+.align-end {
+	-webkit-box-align: end;
+	    -ms-flex-align: end;
+	        align-items: end; }
+
+.ptop {
+	padding-t: 0.75rem; }
+
+.pright {
+	padding-r: 0.75rem; }
+
+.pbottom {
+	padding-b: 0.75rem; }
+
+.pleft {
+	padding-l: 0.75rem; }
+
+.paround {
+	padding: 0.75rem !important; }
+
+.px {
+	padding-left: 0.75rem !important;
+	padding-right: 0.75rem !important; }
+
+.py {
+	padding-top: 0.75rem !important;
+	padding-bottom: 0.75rem !important; }
+
+.btn {
+	padding: 0.4rem 0.6rem;
+	border: 0;
+	outline: 0;
+	margin: 0.5rem;
+	background-color: #a5aabb; }
+	.btn.btn-default {
+		background-color: #5D576B;
+		color: #f7f8f9; }
+	.btn.btn-default.btn-border {
+		border: 2px solid #383440; }
+	.btn.btn-info {
+		background-color: #41D3BD;
+		color: #020203; }
+	.btn.btn-info.btn-border {
+		border: 2px solid #1f8677; }
+	.btn.btn-success {
+		background-color: #A9E190;
+		color: #020203; }
+	.btn.btn-success.btn-border {
+		border: 2px solid #56ae2f; }
+	.btn.btn-alert {
+		background-color: #F4F1BB;
+		color: #020203; }
+	.btn.btn-alert.btn-border {
+		border: 2px solid #dcd227; }
+	.btn.btn-warn {
+		background-color: #ED6A5A;
+		color: #f7f8f9; }
+	.btn.btn-warn.btn-border {
+		border: 2px solid #b12413; }
+	.btn.btn-rounded {
+		border-radius: 0.4rem; }
+	.btn.btn-xs {
+		padding: 0.55rem 1.1rem; }
+	.btn.btn-sm {
+		padding: 0.7rem 1.4rem; }
+	.btn.btn-md {
+		padding: 0.85rem 1.7rem; }
+	.btn.btn-lg {
+		padding: 1rem 2rem; }
+	.btn.btn-xl {
+		padding: 1.15rem 2.3rem; }
+
+.input-text {
+	padding: 0.4rem;
+	font-size: larger; }

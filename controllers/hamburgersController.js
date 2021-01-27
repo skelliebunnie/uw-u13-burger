@@ -3,37 +3,37 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (hamburgers.js) to use its database functions.
-var hamburger = require("../models/hamburger.js");
+var hamburgers = require("../models/hamburger.js");
 
 // Create all our routes and set up logic within those routes where required.
 router.get("/", function(req, res) {
   hamburgers.all(function(data) {
     var hbsObject = {
-      hamburgerss: data
+      hamburgers: data
     };
     console.log(hbsObject);
     res.render("index", hbsObject);
   });
 });
 
-router.post("/api/hamburgerss", function(req, res) {
+router.post("/api/hamburgers", function(req, res) {
   hamburgers.create([
-    "name", "sleepy"
+    "burger_name", "devoured"
   ], [
-    req.body.name, req.body.sleepy
+    req.body.name, req.body.devoured
   ], function(result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   });
 });
 
-router.put("/api/hamburgerss/:id", function(req, res) {
+router.put("/api/hamburgers/:id", function(req, res) {
   var condition = "id = " + req.params.id;
 
   console.log("condition", condition);
 
   hamburgers.update({
-    sleepy: req.body.sleepy
+    devoured: req.body.devoured
   }, condition, function(result) {
     if (result.changedRows == 0) {
       // If no rows were changed, then the ID must not exist, so 404

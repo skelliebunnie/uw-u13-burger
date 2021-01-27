@@ -1,7 +1,7 @@
 @mixin palette($color: #777, $colorMap: $coreColors, $colorName: $color, $harmony: 'analogous', $include-complement: false, $complement-name: "#{$color}-complement", $rangeType: 'range', $scaleColors: 17, $rangeDepth: 7) {
 	$palette: ();
 	
-	$primaryColor: getColor($color, $colorMap);
+	$primaryColor: map-get($colorMap, $color);
 
 	$colors: (); $primaryHarmonyRange: null; $mapRange: null;
 
@@ -127,14 +127,24 @@
 }
 
 // provide a color name to get the contrasting color for either background or font
+// if $type:'bg', return $colorName as background-color, color as contrast
+// if !$type:'bg', return $colorName as color, background-color as contrast
 @mixin colorPair($colorName, $map: $palette, $type: 'bg') {
+	$color: white;
+
+	@if type-of($colorName) == "color" {
+		$color: $colorName;
+	} @else if type-of($colorName) == "string" and map-has-key($map, $colorName) {
+		$color: getColor($colorName, $map);
+	}
+
 	@if $type == 'bg' or $type == 'background' {
-		background-color: getColor($colorName, $map);
-		color: getContrast( getColor($colorName, $map) );
+		background-color: $color;
+		color: getContrast( $color );
 
 	} @else {
-		color: getColor($colorName, $map);
-		background-color: getContrast( getColor($colorName, $map) );
+		color: $color;
+		background-color: getContrast( $color );
 	}
 	
 }

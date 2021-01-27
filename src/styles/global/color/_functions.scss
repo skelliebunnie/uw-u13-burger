@@ -116,6 +116,21 @@
 	$luminance: null; $clr: null;
 	$luminance-comp: 0.37;
 
+	$lightColor: #EFEFEF;
+	$darkColor: #373737;
+
+	@if map-has-key($palette, 'neutral-100') == true {
+		$lightColor: getColor('neutral-100');
+	}
+
+	@if map-has-key($palette, 'neutral-700') == true {
+		$darkColor: getColor('neutral-700');
+	} @else if map-has-key($palette, 'neutral-500') == true {
+		$darkColor: getColor('neutral-500');
+	} @else if map-has-key($palette, 'neutral-300') == true {
+		$darkColor: getColor('neutral-300');
+	}
+
 	@if type_of($color) == color {
 		$luminance: luminance($color);
 		@if lightness($color) > $luminance-comp {
@@ -129,9 +144,9 @@
 	}
 
 	@if $luminance >= $luminance-comp {
-		$clr: darkenColor(getColor('neutral-700'), 80);
+		$clr: darkenColor($darkColor, 80);
 	} @else {
-		$clr: lightenColor(getColor('neutral-100'), 80);
+		$clr: lightenColor($lightColor, 80);
 	}
 
 	//@debug $color $luminance $luminance-comp $clr;
@@ -616,7 +631,7 @@
 @function harmony($color, $colorName: "primary", $harmony: "analogous", $include-complement: false, $complement-name: "#{$colorName}-complement") {
 	$colors: ();
 
-	$main: $color; $complement: complement($main);
+	$main: $color; $complement: complement($color);
 	
 	$palette: ();
 

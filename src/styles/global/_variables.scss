@@ -1,6 +1,10 @@
+//* ====================================
+//		MAPS
+//* ====================================
 $sizes: ('xs','sm','md','lg','xl');
+$font-sizes: (0.5rem,0.8rem,1rem,1.5rem,2.2rem);
 $text-positions: ('left', 'center', 'right');
-$border-sides: ('top', 'right', 'bottom', 'left');
+$border-sides: ('t': 'top', 'r': 'right', 'b': 'bottom', 'l': 'left');
 $border-corners: ('top-left', 'top-right', 'bottom-right', 'bottom-left');
 $other: ('around', 'x', 'y');
 $justify: ('start', 'center', 'end', 'space-between', 'space-around', 'space-evenly');
@@ -9,11 +13,26 @@ $align: ('stretch','center', 'start', 'end');
 //* ====================================
 //		GENERAL DEFAULTS
 //* ====================================
-$scale: 0;
-@if $range == 'default' or $range == 'tintshade' {
-	$scale: 65;
+$paletteScale: 0;
+@if $paletteRange == 'default' or $paletteRange == 'tintshade' {
+	$paletteScale: 65;
 } @else {
-	$scale: 25;
+	$paletteScale: 25;
+}
+
+$lightColor: #efefef;
+$darkColor: #373737;
+
+@if map-has-key($palette, 'neutral-100') == true {
+	$lightColor: getColor('neutral-100');
+}
+
+@if map-has-key($palette, 'neutral-700') == true {
+	$darkColor: getColor('neutral-700');
+} @else if map-has-key($palette, 'neutral-500') == true {
+	$darkColor: getColor('neutral-500');
+} @else if map-has-key($palette, 'neutral-300') == true {
+	$darkColor: getColor('neutral-300');
 }
 
 $defaults: (
@@ -21,8 +40,8 @@ $defaults: (
 	'margin': 0.75rem,
 	'gutter': 0.5rem,
 	'border-width': 1px,
-	'color-light': scale-color(getColor('neutral-100'), $lightness:  $scale),
-	'color-dark': scale-color(getColor('neutral-700'), $lightness: -($scale))
+	'color-light': scale-color($lightColor, $lightness:  $paletteScale),
+	'color-dark': scale-color($darkColor, $lightness: -($paletteScale))
 ) !default;
 
 $default-pad: map-get($defaults, 'padding');
@@ -50,6 +69,8 @@ $hr-sizes: (
 	'lg': 5px,
 	'xl': 7px
 ) !default;
+
+$defaultRadius: 0.4rem;
 
 //* ====================================
 //		GRID & MEDIA-QUERY BREAKPOINTS

@@ -2,19 +2,19 @@
 $(function() {
   $(".change-sleep").on("click", function(event) {
     var id = $(this).data("id");
-    var newSleep = $(this).data("newsleep");
+    var status = $(this).data("devoured");
 
-    var newSleepState = {
-      sleepy: newSleep
+    var hamburgerStatus = {
+      sleepy: status
     };
 
     // Send the PUT request.
-    $.ajax("/api/cats/" + id, {
+    $.ajax("/api/hamburgers/" + id, {
       type: "PUT",
-      data: newSleepState
+      data: hamburgerStatus
     }).then(
       function() {
-        console.log("changed sleep to", newSleep);
+        console.log("changed sleep to", status);
         // Reload the page to get the updated list
         location.reload();
       }
@@ -24,19 +24,21 @@ $(function() {
   $(".create-form").on("submit", function(event) {
     // Make sure to preventDefault on a submit event.
     event.preventDefault();
+    console.log($("#newBurger").val());
 
-    var newCat = {
-      name: $("#ca").val().trim(),
-      sleepy: $("[name=sleepy]:checked").val().trim()
+    var newHamburger = {
+      name: $("#newBurger").val().trim(),
+      devoured: $("#devoured").val().trim()
+      //devoured: $("[name=devoured]:checked").val().trim()
     };
 
     // Send the POST request.
-    $.ajax("/api/cats", {
+    $.ajax("/api/hamburgers", {
       type: "POST",
-      data: newCat
+      data: newHamburger
     }).then(
       function() {
-        console.log("created new cat");
+        console.log("created new hamburger");
         // Reload the page to get the updated list
         location.reload();
       }

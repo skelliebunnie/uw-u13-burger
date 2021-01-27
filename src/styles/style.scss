@@ -1,5 +1,13 @@
 @import "global/core";
 
+@import "global/color/core";
+
 @import "settings";
 
+@import	"global/variables",
+				"global/helpers";
+
 @import	"global/sass-mq";
+
+@import "components/buttons",
+				"components/inputs";

@@ -1,0 +1,29 @@
+.btn {
+	padding: 0.4rem 0.6rem;
+	border: 0;
+	outline: 0;
+	margin: 0.5rem;
+	background-color: getColor('neutral-200');
+
+	@each $name, $color in $messageColors {
+		&.btn-#{$name} {
+			@include colorPair($color);
+		}
+
+		&.btn-#{$name}.btn-border {
+			border: 2px solid darkenColor($color, 40);
+		}
+	}
+
+	&.btn-rounded {
+		border-radius: $defaultRadius;
+	}
+
+	$n: 1.1;
+	@each $size in $sizes {
+		&.btn-#{$size} {
+			padding: $n * 0.5rem $n * 1rem;
+		}
+		$n: $n + 0.3;
+	}
+}

@@ -14,14 +14,26 @@
 
 @each $position in $text-positions {
 	%text-#{$position} { text-align: unquote($position) !important; }
+	.text-#{$position} { text-align: unquote($position); }
+	@if $position == "left" { .img-left { display: block; margin-left: 0; } }
+	@if $position == "center" { .img-center { display: block; margin: 0 auto; } }
+	@if $position == "right" { .img-right { display: block; margin-right: 0; } }
+}
+
+@each $size in $sizes {
+	$i: index($sizes, $size);
+	%text-#{$size} { font-size: nth($font-sizes, $i); }
+	.text-#{$size} { font-size: nth($font-sizes, $i); }
 }
 
 @each $type in $justify {
 	%justify-#{$type} { justify-content: unquote($type) !important; }
+	.justify-#{$type} { justify-content: unquote($type); }
 }
 
 @each $type in $align {
 	%align-#{$type} { align-items: unquote($type) !important; }
+	.align-#{$type} { align-items: unquote($type); }
 }
 
 %no-pad { padding: 0 !important; }
@@ -31,9 +43,12 @@
 //*		HELPERS: PADDING
 //* ====================================
 
-@each $position in $border-sides {
+@each $position, $short in $border-sides {
 	%pad-#{$position} {
 		padding-#{$position}: $default-pad !important;
+	}
+	.p#{$short} {
+		padding-#{$position}: $default-pad;
 	}
 }
 
@@ -51,13 +66,28 @@
 			padding-bottom: $default-pad !important;
 		}
 	}
+
+	.p#{$position} {
+		@if $position == 'around' { 
+			padding: $default-pad !important; 
+		}
+		@if $position == 'x' { 
+			padding-left: $default-pad !important;
+			padding-right: $default-pad !important;
+		}
+		@if $position == 'y' {
+			padding-top: $default-pad !important;
+			padding-bottom: $default-pad !important;
+		}
+	}
 }
 
 @each $size,$pad in $padding-sizes {
-	@each $position in $border-sides {
+	@each $position, $short in $border-sides {
 		%pad-#{$size}-#{$position} {
 			padding-#{$position}: map-get($padding-sizes, quote($size)) !important;
 		}
+		// .p#{}
 	}
 
 	@each $position in $other {
